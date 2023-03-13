@@ -1,4 +1,4 @@
-import tabulate
+from tabulate import tabulate
 # Crear un programa que lea una tabla con los nombres, edad,
 # sexo y notas de algoritmia de un curso de alumnos de un
 # colegio. El programa debe calcular e imprimir con base en
@@ -12,6 +12,8 @@ import tabulate
 # usuario
 
 # Creamos una clase para modelar un "Alumno":
+
+
 class Alumno:
     def __init__(self, nombre, edad, sexo, notas_algoritmica):
         self.Nombre = nombre
@@ -55,5 +57,14 @@ for i in range(N):
         print("Error.")
         auxSexo = input("Ingrese el sexo (sólo M o F)")
     auxNota = tipoint(promptNota)
+    while auxNota > 5 or auxNota < 1:
+        auxNota = tipoint(promptNota)
     Alumnos.append(Alumno(auxNombre, auxEdad, auxSexo, auxNota))
-print(tabulate(Alumnos, headers=[]))
+
+# Lista de alumnos del curso
+print("{:<30} {:<10} {:<10} {:<15}".format("Nombre", "Edad", "Sexo", "Nota de Algorítmica"))
+for i in range(N):
+    print("{:<30} {:<10} {:<10} {:<15}".format(Alumnos[i].Nombre, Alumnos[i].Edad, Alumnos[i].Sexo, Alumnos[i].notas_algoritmica))
+
+# Procesamiento de datos
+
